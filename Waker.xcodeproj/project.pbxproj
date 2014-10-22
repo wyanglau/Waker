@@ -13,8 +13,15 @@
 		A309992519F74D650081E01D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A309992419F74D650081E01D /* Images.xcassets */; };
 		A309992819F74D650081E01D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A309992619F74D650081E01D /* LaunchScreen.xib */; };
 		A309993419F74D650081E01D /* WakerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A309993319F74D650081E01D /* WakerTests.m */; };
+		A34CF4C819F8586A00A64AFB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A34CF4C719F8586A00A64AFB /* CoreGraphics.framework */; };
 		A387D6E819F785FF00BE169B /* WakerMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A387D6E719F785FF00BE169B /* WakerMainViewController.m */; };
-		A387D6EB19F789FA00BE169B /* SetupClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A387D6EA19F789FA00BE169B /* SetupClockViewController.m */; };
+		A387D6EB19F789FA00BE169B /* AlarmConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A387D6EA19F789FA00BE169B /* AlarmConfigViewController.m */; };
+		A3980DD319F832F3002549F1 /* LabelAlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3980DD219F832F3002549F1 /* LabelAlarmViewController.m */; };
+		A3980DDC19F834E1002549F1 /* GameOptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3980DDB19F834E1002549F1 /* GameOptionsTableViewController.m */; };
+		A3980DDE19F8419F002549F1 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3980DDD19F8419F002549F1 /* opencv2.framework */; };
+		A3980DE019F84D25002549F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3980DDF19F84D25002549F1 /* UIKit.framework */; };
+		A3980DE219F84D34002549F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3980DE119F84D34002549F1 /* Foundation.framework */; };
+		A3980DE619F84DFB002549F1 /* PicturingViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A3980DE519F84DFB002549F1 /* PicturingViewController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,10 +46,21 @@
 		A309992D19F74D650081E01D /* WakerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WakerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A309993219F74D650081E01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A309993319F74D650081E01D /* WakerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WakerTests.m; sourceTree = "<group>"; };
+		A34CF4C719F8586A00A64AFB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A387D6E619F785FF00BE169B /* WakerMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WakerMainViewController.h; sourceTree = "<group>"; };
 		A387D6E719F785FF00BE169B /* WakerMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WakerMainViewController.m; sourceTree = "<group>"; };
-		A387D6E919F789FA00BE169B /* SetupClockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupClockViewController.h; sourceTree = "<group>"; };
-		A387D6EA19F789FA00BE169B /* SetupClockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupClockViewController.m; sourceTree = "<group>"; };
+		A387D6E919F789FA00BE169B /* AlarmConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmConfigViewController.h; sourceTree = "<group>"; };
+		A387D6EA19F789FA00BE169B /* AlarmConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmConfigViewController.m; sourceTree = "<group>"; };
+		A3980DD119F832F3002549F1 /* LabelAlarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelAlarmViewController.h; sourceTree = "<group>"; };
+		A3980DD219F832F3002549F1 /* LabelAlarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelAlarmViewController.m; sourceTree = "<group>"; };
+		A3980DDA19F834E1002549F1 /* GameOptionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOptionsTableViewController.h; sourceTree = "<group>"; };
+		A3980DDB19F834E1002549F1 /* GameOptionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOptionsTableViewController.m; sourceTree = "<group>"; };
+		A3980DDD19F8419F002549F1 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../opencv2.framework; sourceTree = "<group>"; };
+		A3980DDF19F84D25002549F1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A3980DE119F84D34002549F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A3980DE319F84D8B002549F1 /* Waker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Waker-Prefix.pch"; sourceTree = "<group>"; };
+		A3980DE419F84DFB002549F1 /* PicturingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicturingViewController.h; sourceTree = "<group>"; };
+		A3980DE519F84DFB002549F1 /* PicturingViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PicturingViewController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +68,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3980DDE19F8419F002549F1 /* opencv2.framework in Frameworks */,
+				A3980DE019F84D25002549F1 /* UIKit.framework in Frameworks */,
+				A3980DE219F84D34002549F1 /* Foundation.framework in Frameworks */,
+				A34CF4C819F8586A00A64AFB /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +88,7 @@
 		A309990B19F74D650081E01D = {
 			isa = PBXGroup;
 			children = (
+				A34CF4C719F8586A00A64AFB /* CoreGraphics.framework */,
 				A309991619F74D650081E01D /* Waker */,
 				A309993019F74D650081E01D /* WakerTests */,
 				A309991519F74D650081E01D /* Products */,
@@ -84,13 +107,19 @@
 		A309991619F74D650081E01D /* Waker */ = {
 			isa = PBXGroup;
 			children = (
-				A387D6E919F789FA00BE169B /* SetupClockViewController.h */,
-				A387D6EA19F789FA00BE169B /* SetupClockViewController.m */,
+				A3980DE419F84DFB002549F1 /* PicturingViewController.h */,
+				A3980DE519F84DFB002549F1 /* PicturingViewController.mm */,
+				A3980DDA19F834E1002549F1 /* GameOptionsTableViewController.h */,
+				A3980DDB19F834E1002549F1 /* GameOptionsTableViewController.m */,
+				A387D6E919F789FA00BE169B /* AlarmConfigViewController.h */,
+				A387D6EA19F789FA00BE169B /* AlarmConfigViewController.m */,
 				A309991B19F74D650081E01D /* AppDelegate.h */,
 				A309991C19F74D650081E01D /* AppDelegate.m */,
 				A387D6E619F785FF00BE169B /* WakerMainViewController.h */,
 				A387D6E719F785FF00BE169B /* WakerMainViewController.m */,
 				A309992119F74D650081E01D /* Main.storyboard */,
+				A3980DD119F832F3002549F1 /* LabelAlarmViewController.h */,
+				A3980DD219F832F3002549F1 /* LabelAlarmViewController.m */,
 				A309992419F74D650081E01D /* Images.xcassets */,
 				A309992619F74D650081E01D /* LaunchScreen.xib */,
 				A309991719F74D650081E01D /* Supporting Files */,
@@ -101,8 +130,12 @@
 		A309991719F74D650081E01D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A3980DDD19F8419F002549F1 /* opencv2.framework */,
+				A3980DE119F84D34002549F1 /* Foundation.framework */,
+				A3980DDF19F84D25002549F1 /* UIKit.framework */,
 				A309991819F74D650081E01D /* Info.plist */,
 				A309991919F74D650081E01D /* main.m */,
+				A3980DE319F84D8B002549F1 /* Waker-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -225,8 +258,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A309991D19F74D650081E01D /* AppDelegate.m in Sources */,
-				A387D6EB19F789FA00BE169B /* SetupClockViewController.m in Sources */,
+				A3980DD319F832F3002549F1 /* LabelAlarmViewController.m in Sources */,
+				A3980DDC19F834E1002549F1 /* GameOptionsTableViewController.m in Sources */,
+				A387D6EB19F789FA00BE169B /* AlarmConfigViewController.m in Sources */,
 				A387D6E819F785FF00BE169B /* WakerMainViewController.m in Sources */,
+				A3980DE619F84DFB002549F1 /* PicturingViewController.mm in Sources */,
 				A309991A19F74D650081E01D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +385,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Waker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -359,6 +399,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Waker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
