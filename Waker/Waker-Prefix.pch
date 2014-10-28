@@ -1,0 +1,32 @@
+//
+//  Waker.pch
+//  Waker
+//
+//  Created by Liuwyang on 2014-10-22.
+//  Copyright (c) 2014 ECE1780. All rights reserved.
+//
+
+//#ifndef Waker_Waker_pch
+//#define Waker_Waker_pch
+//
+//// Include any system framework and library headers here that should be included in all compilation units.
+//// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+//
+//#endif
+
+
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __cplusplus
+#import <opencv2/opencv.hpp>
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#endif
