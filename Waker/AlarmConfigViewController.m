@@ -110,8 +110,7 @@
     return cell;
 }
 - (void) switchChanged:(id)sender {
-    UISwitch* switchControl = sender;
-   
+    UISwitch* switchControl = sender;   
     [self setRepeat:switchControl.on];
     NSLog( @"Repeat switch is %@", switchControl.on ? @"ON" : @"OFF" );
   
