@@ -4,7 +4,7 @@
 //
 //  Created by Liuwyang on 2014-10-26.
 //  Copyright (c) 2014 ECE1780. All rights reserved.
-// Welcome to Git :D
+// Welcome to Git XD
 #import <Foundation/Foundation.h>
 
 @interface AlarmObject : NSObject
