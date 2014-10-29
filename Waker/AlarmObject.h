@@ -9,7 +9,7 @@
 
 @interface AlarmObject : NSObject
 
-@property NSString* index;
+@property NSInteger index;
 @property NSDate* time;
 @property NSInteger* gameOption;
 @property BOOL isRepeat;

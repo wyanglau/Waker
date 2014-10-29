@@ -109,12 +109,13 @@
     
     return cell;
 }
-- (void) switchChanged:(id)sender {
+- (void) switchChanged:(UISwitch*)sender {
     UISwitch* switchControl = sender;   
     [self setRepeat:switchControl.on];
     NSLog( @"Repeat switch is %@", switchControl.on ? @"ON" : @"OFF" );
   
 }
+
 
 -(void)setRepeat:(BOOL)repeatControl{
     alarm.isRepeat=repeatControl;
@@ -128,7 +129,7 @@
 -(void)setPickedDate:(NSDate*)time{
     alarm.time=time;
 }
--(void)setAlarmIndex:(NSString*)index{
+-(void)setAlarmIndex:(NSInteger)index{
     alarm.index=index;
 }
 -(AlarmObject*)getAlarm{

@@ -21,6 +21,7 @@ static  NSString* DONE=@"Done";
 @implementation WakerMainViewController
 @synthesize showTime;
 @synthesize editButton;
+@synthesize uINavigationItem;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,6 +30,7 @@ static  NSString* DONE=@"Done";
 }
 
 - (void)initData{
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"Screen5.png"]];
     
     self.editButton.title= NSLocalizedString(EDIT, EDIT);
     
@@ -50,17 +52,6 @@ static  NSString* DONE=@"Done";
     
     //to do 触发闹钟
     NSDate *date = [NSDate date];
-    //    NSCalendar *calendar = [NSCalendar currentCalendar];
-    //    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
-    //    NSDateComponents *todayComponents = [calendar components:unitFlags
-    //                                                    fromDate:date];
-    //
-    //
-    //    NSInteger hour = [todayComponents hour];
-    //    NSInteger min = [todayComponents minute];
-    //
-    //    showTime.text =[NSString stringWithFormat:@"%2ld:%02ld",(long)hour,(long)min];
-    
     showTime.text= [self dateFormatter:date];
     
     
@@ -152,7 +143,7 @@ static  NSString* DONE=@"Done";
     notification.alertBody=@"Get Up!";
     notification.soundName= @"Alarm.caf";
     [[UIApplication sharedApplication]scheduleLocalNotification:notification];
-    NSLog(@"Notification done!");
+    NSLog(@"[WakerMainViewController] : Notification done!");
     
     
 }
@@ -188,11 +179,10 @@ static  NSString* DONE=@"Done";
 }
 - (IBAction)unwindClockSetting:(UIStoryboardSegue *)segue{
     
-    NSLog(@"cancelUnwind");
+    NSLog(@"[WakerMainViewController] : cancelUnwind");
     
 }
 - (IBAction)saveAndUnwindClockSetting:(UIStoryboardSegue *)segue{
-    
     
     
     //Get the previous view from segue
@@ -200,16 +190,16 @@ static  NSString* DONE=@"Done";
     if (config != nil) {
         NSDate *fireDate =[config pickCurrentDateTime];
         [self scheduleLocalNotificationWithFiredate:fireDate];
-        [self addAlarm:config.getAlarm];
+        [self addAlarms:config.getAlarm];
         
         
         NSLog(@"Save and unwind!");
     }
 }
-- (void)addAlarm:(AlarmObject*)alarm{
+- (void)addAlarms:(AlarmObject*)alarm{
     if(alarm!=nil){
         [self.alarmSets addObject:alarm];
-        NSLog(@"WakerMainViewController : Adding alarm:%@",alarm.time);
+        NSLog(@"[WakerMainViewController] : Adding alarm:%@",alarm.time);
     }
     
 }
@@ -230,22 +220,54 @@ static  NSString* DONE=@"Done";
 {
     UITableViewCell* cell;
     NSString* alarm_identifier = @"1";
-    AlarmObject *alarm = [self.alarmSets objectAtIndex:indexPath.row];
+    NSInteger index= indexPath.row;
+    AlarmObject *alarm = [self.alarmSets objectAtIndex:index];
+    
+    //Set the row index of alarm
+    alarm.index=index;
+    [self modifyAlarm:alarm];
+    
     cell = [tableView dequeueReusableCellWithIdentifier:alarm_identifier forIndexPath:indexPath];
     cell.textLabel.text = [self dateFormatter:alarm.time];
     UISwitch *switchView = [[UISwitch alloc] init];
     cell.accessoryView = switchView;
     
     //闹钟初始状态需要从文件读~ TO-----DO-------
-    // [switchView setOn:YES animated:NO];
-    //    [switchView addTarget:self action:@selector(switchChanged:) forControlEvents: UIControlEventValueChanged];
-    //
-    //
+     [switchView setOn:YES animated:NO];
+    switchView.tag= index;
+    [switchView addTarget:self action:@selector(switchChanged:) forControlEvents: UIControlEventValueChanged];
     
     return cell;
 }
+- (void) switchChanged:(UISwitch*)switcher{
+    NSInteger index = switcher.tag;
+    AlarmObject* alarm = [self.alarmSets objectAtIndex:index];
+    if(switcher.isOn){
+        [self turnOnAlarm:alarm];
+    }
+    else{
+        [self turnOffAlarm:alarm];
+    }
+    
+    NSLog( @" WakerMainViewController : switch %ld is %@", (long)switcher.tag, switcher.on ? @"ON" : @"OFF" );
+    
+}
 
+-(void)turnOnAlarm:(AlarmObject*)alarm{
+    alarm.isOn=YES;
+    [self modifyAlarm:alarm];
+    // to - do -- add notification
+}
 
+-(void)turnOffAlarm:(AlarmObject*)alarm{
+    alarm.isOn=NO;
+    [self modifyAlarm:alarm];
+    // to - do -- shutdown notification
+}
 
+-(void)modifyAlarm:(AlarmObject*)alarm;{
+ 
+    [self.alarmSets setObject:alarm atIndexedSubscript:alarm.index];
+}
 
 @end
