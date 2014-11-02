@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "PKImagePickerViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -36,6 +36,9 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
     [alertView show];
+    PKImagePickerViewController *imagePicker=[[PKImagePickerViewController alloc]init];;
+     //[imagePicker presentViewController:imagePicker animated:YES completion:nil];
+    [imagePicker presentedViewController];
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
