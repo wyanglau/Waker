@@ -15,6 +15,7 @@
 
 @implementation AlarmConfigViewController
 @synthesize timePicker;
+@synthesize alarm;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -49,6 +50,7 @@
     [self.configOptions addObject:optionRepeat];
     
 }
+// Be careful, here returns the date without TimeZone formatter.
 -(NSDate*)pickCurrentDateTime{
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
@@ -57,6 +59,7 @@
     dateFormatter.dateStyle=NSDateFormatterShortStyle;
     NSString *dateTimeString = [self dateFormatter:timePicker.date];
     NSLog(@"AlarmConfigViewController : dateTimePick:%@",dateTimeString);
+    
     return timePicker.date;
 }
 -(NSString*)dateFormatter:(NSDate*)date{
@@ -132,9 +135,9 @@
 -(void)setAlarmIndex:(NSInteger)index{
     alarm.index=index;
 }
--(AlarmObject*)getAlarm{
-    return alarm;
-}
+//-(AlarmObject*)getAlarm{
+//    return alarm;
+//}
 
 #pragma mark - Navigation
 
@@ -142,7 +145,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    
+    NSLog(@"AlarmConfigViewController Setting Alarm Time: %@",[self pickCurrentDateTime]);
     [self setPickedDate:[self pickCurrentDateTime]];
 }
 

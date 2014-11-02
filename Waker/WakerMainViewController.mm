@@ -18,6 +18,7 @@
 @end
 static  NSString* EDIT=@"Edit";
 static  NSString* DONE=@"Done";
+static NSString* ALARM_INDEX=@"AlarmIndex";
 @implementation WakerMainViewController
 @synthesize showTime;
 @synthesize editButton;
@@ -50,7 +51,7 @@ static  NSString* DONE=@"Done";
 
 -(void)driveClock:(NSTimer *)timer{
     
-    //to do 触发闹钟
+    //to do 在不用localnotification的情况下触发闹钟
     NSDate *date = [NSDate date];
     showTime.text= [self dateFormatter:date];
     
@@ -68,17 +69,17 @@ static  NSString* DONE=@"Done";
     //to do ... Load initial alarm clocks from storage
     
     //--test    data
-    AlarmObject* obj = [[AlarmObject alloc]init];
-    obj.label = @"label";
-    obj.time = [NSDate date];
-    obj.isRepeat=YES;
-    [self.alarmSets addObject:obj];
-    
-    AlarmObject* obj2 = [[AlarmObject alloc]init];
-    obj2.label = @"label";
-    obj2.time = [NSDate date];
-    obj2.isRepeat=YES;
-    [self.alarmSets addObject:obj2];
+//    AlarmObject* obj = [[AlarmObject alloc]init];
+//    obj.label = @"label";
+//    obj.time = [NSDate date];
+//    obj.isRepeat=YES;
+//    [self.alarmSets addObject:obj];
+//    
+//    AlarmObject* obj2 = [[AlarmObject alloc]init];
+//    obj2.label = @"label";
+//    obj2.time = [NSDate date];
+//    obj2.isRepeat=YES;
+//    [self.alarmSets addObject:obj2];
     
     //    //-test
 }
@@ -120,33 +121,65 @@ static  NSString* DONE=@"Done";
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    AlarmObject * alarm = [self.alarmSets objectAtIndex:indexPath.row];
     // If row is deleted, remove it from the list.
     if (editingStyle == UITableViewCellEditingStyleDelete) {
       // WakerMainViewController *controller = (WakerMainViewController *)[[UIApplication sharedApplication] delegate];
        [self removeAlarmObjectFromListAtIndex:indexPath.row];
         [self.tableInMain deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        //Cancel the localnotification
+        [self cancelLocalNotificationWithAlarm:alarm];
     }
 }
+
 -(void)removeAlarmObjectFromListAtIndex:(NSInteger)index{
     [self.alarmSets removeObjectAtIndex:index];
 
 }
 
+-(void)removeAlarmObjectFromList:(AlarmObject*)alarm{
+    [self.alarmSets removeObject:alarm];
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)scheduleLocalNotificationWithFiredate:(NSDate *)fireDate{
+
+- (void)scheduleLocalNotificationWithFiredate:(AlarmObject *)alarm{
     
+    NSDate* fireDate = alarm.time;
     UILocalNotification *notification = [[UILocalNotification alloc]init];
     notification.fireDate=fireDate;
     notification.alertBody=@"Get Up!";
     notification.soundName= @"Alarm.caf";
+    notification.repeatInterval = kCFCalendarUnitDay;
+    
+    //把index当做notification ID
+    NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%ld",(long)alarm.index],ALARM_INDEX, nil];
+    notification.userInfo = infoDict;
+    NSLog(@"The current index is :%ld . Adding localNotification, infoDict = %@",(long)alarm.index,infoDict);
+    
     [[UIApplication sharedApplication]scheduleLocalNotification:notification];
     NSLog(@"[WakerMainViewController] : Notification done!");
     
     
 }
+-(void)cancelLocalNotificationWithAlarm:(AlarmObject*)alarm{
+    NSString * index = [NSString stringWithFormat:@"%ld",(long)alarm.index];
+    
+    NSArray *notifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    for (UILocalNotification *notification in notifications ) {
+        if( [[notification.userInfo objectForKey:ALARM_INDEX] isEqualToString:index] ) {
+            NSLog(@"Canceling Notification AlarmIndex=%@",index);
+            [[UIApplication sharedApplication] cancelLocalNotification:notification];
+            break;
+        }
+    }
+}
+
 - (void)testAlert{
     
     
@@ -188,18 +221,17 @@ static  NSString* DONE=@"Done";
     //Get the previous view from segue
     AlarmConfigViewController *config = segue.sourceViewController;
     if (config != nil) {
-        NSDate *fireDate =[config pickCurrentDateTime];
-        [self scheduleLocalNotificationWithFiredate:fireDate];
-        [self addAlarms:config.getAlarm];
-        
-        
-        NSLog(@"Save and unwind!");
+        AlarmObject * alarm = config.alarm;
+        [self addAlarms:alarm];
+
+        NSLog(@"Save alarm %@ and unwind!",config.alarm.time);
     }
 }
+
 - (void)addAlarms:(AlarmObject*)alarm{
     if(alarm!=nil){
         [self.alarmSets addObject:alarm];
-        NSLog(@"[WakerMainViewController] : Adding alarm:%@",alarm.time);
+        NSLog(@"[WakerMainViewController] : Alarm added to alarmSets:%@",alarm.time);
     }
     
 }
@@ -229,6 +261,10 @@ static  NSString* DONE=@"Done";
     
     cell = [tableView dequeueReusableCellWithIdentifier:alarm_identifier forIndexPath:indexPath];
     cell.textLabel.text = [self dateFormatter:alarm.time];
+    
+     [self scheduleLocalNotificationWithFiredate:alarm];
+    
+    
     UISwitch *switchView = [[UISwitch alloc] init];
     cell.accessoryView = switchView;
     
@@ -256,13 +292,13 @@ static  NSString* DONE=@"Done";
 -(void)turnOnAlarm:(AlarmObject*)alarm{
     alarm.isOn=YES;
     [self modifyAlarm:alarm];
-    // to - do -- add notification
+     [self scheduleLocalNotificationWithFiredate:alarm];
 }
 
 -(void)turnOffAlarm:(AlarmObject*)alarm{
     alarm.isOn=NO;
     [self modifyAlarm:alarm];
-    // to - do -- shutdown notification
+    [self cancelLocalNotificationWithAlarm:alarm];
 }
 
 -(void)modifyAlarm:(AlarmObject*)alarm;{
@@ -271,3 +307,4 @@ static  NSString* DONE=@"Done";
 }
 
 @end
+

@@ -17,18 +17,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     //NotificationPermission
-    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
-        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
-    }
-    
+//    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+//        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+//    }
+//    
     // Override point for customization after application launch.
     return YES;
 }
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
  //// 把notification alert出来
-//    [self showAlarm:notification.alertBody];
-//    application.applicationIconBadgeNumber = 0;
-//    NSLog(@"AppDelegate didReceiveLocalNotification %@", notification.userInfo);
+    [self showAlarm:notification.alertBody];
+    application.applicationIconBadgeNumber = 0;
+    NSLog(@"AppDelegate didReceiveLocalNotification %@", notification.userInfo);
 }
 - (void)showAlarm:(NSString *)text {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alarm"

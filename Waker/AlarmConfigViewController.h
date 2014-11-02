@@ -10,14 +10,11 @@
 #import "AlarmObject.h"
 
 @interface AlarmConfigViewController : UIViewController
-{
-    AlarmObject *alarm;
-    
-}
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
 @property NSMutableArray *configOptions; //存储页面显示的选项，现在有1.label 2.game options 3.repeat
+@property  AlarmObject *alarm;
 -(NSDate*)pickCurrentDateTime;
--(AlarmObject*)getAlarm;
+//-(AlarmObject*)getAlarm;
 
 @end

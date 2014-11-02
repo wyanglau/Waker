@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AlarmObject.h"
 
 @interface WakerMainViewController : UIViewController <UIAlertViewDelegate>
 
@@ -19,11 +20,12 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *uINavigationItem;
 
 @property NSMutableArray *alarmSets;
-- (void)scheduleLocalNotificationWithFiredate:(NSDate *)fireDate;
+- (void)scheduleLocalNotificationWithFiredate:(AlarmObject *)alarm;
 - (IBAction) editButtonTapped:(UIBarButtonItem *)sender;
 - (IBAction) addButtonTapped:(UIBarButtonItem *)sender;
 - (IBAction)unwindClockSetting:(UIStoryboardSegue *)segue;
 - (IBAction)saveAndUnwindClockSetting:(UIStoryboardSegue *)segue;
+
 
 @end
 
