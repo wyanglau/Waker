@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="N6v-id-Lcp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="34a-gP-4Bw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -124,7 +124,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="KNH-Tx-sv0" kind="show" id="A8b-a6-OPQ"/>
+                                            <segue destination="A5E-0e-wrb" kind="show" id="sv2-2Q-AHk"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Repeat" textLabel="b1v-3A-Qm4" style="IBUITableViewCellStyleDefault" id="QUQ-pm-3Ri">
@@ -170,7 +170,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WqU-3x-vpB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="efE-fo-R9p" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1254" y="231.99999999999997"/>
+            <point key="canvasLocation" x="1262" y="247"/>
         </scene>
         <!--Picturing View Controller-->
         <scene sceneID="C5m-e7-gHH">
@@ -360,6 +360,89 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oM5-AH-pm4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="562" y="982"/>
+        </scene>
+        <!--ColorPicker Demo-->
+        <scene sceneID="gWP-lD-kS7">
+            <objects>
+                <tableViewController id="va0-3a-AOF" customClass="DemoTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="G79-qJ-jBF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="i2R-Zh-faD" customClass="HFColorPickerView">
+                            <rect key="frame" x="0.0" y="64" width="320" height="120"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="delegate" destination="va0-3a-AOF" id="Zkq-ry-fHs"/>
+                            </connections>
+                        </view>
+                        <sections>
+                            <tableViewSection headerTitle="Test" id="UUu-bo-mwc">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="6gQ-LP-dA8">
+                                        <rect key="frame" x="0.0" y="239" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6gQ-LP-dA8" id="hiw-kP-iVb">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected Color" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBl-QB-YOZ">
+                                                    <rect key="frame" x="20" y="11" width="280" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="NBl-QB-YOZ" secondAttribute="trailing" constant="20" id="FJy-wF-gTx"/>
+                                                <constraint firstItem="NBl-QB-YOZ" firstAttribute="leading" secondItem="hiw-kP-iVb" secondAttribute="leading" constant="20" id="IhV-uy-R1b"/>
+                                                <constraint firstItem="NBl-QB-YOZ" firstAttribute="top" secondItem="hiw-kP-iVb" secondAttribute="top" constant="11" id="UIX-lT-gNq"/>
+                                                <constraint firstAttribute="bottom" secondItem="NBl-QB-YOZ" secondAttribute="bottom" constant="11" id="gLZ-E4-PjN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="8tZ-1q-Yjp">
+                                        <rect key="frame" x="0.0" y="283" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8tZ-1q-Yjp" id="KRG-ZN-f1f">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="va0-3a-AOF" id="ySu-u7-mMU"/>
+                            <outlet property="delegate" destination="va0-3a-AOF" id="qij-tc-PRL"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="ColorPicker Demo" id="7ib-8C-pKi"/>
+                    <connections>
+                        <outlet property="colorPickerView" destination="i2R-Zh-faD" id="L7Z-gV-2en"/>
+                        <outlet property="labelColor" destination="NBl-QB-YOZ" id="IiF-1i-uVx"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="75B-tV-BzO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1664" y="-408"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ois-u2-V93">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="A5E-0e-wrb" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="H3F-5D-ozz">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="va0-3a-AOF" kind="relationship" relationship="rootViewController" id="AIa-we-rhv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Bg-Pb-2Jw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1244" y="-428"/>
         </scene>
     </scenes>
     <resources>
