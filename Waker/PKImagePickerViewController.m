@@ -8,7 +8,7 @@
 
 #import "PKImagePickerViewController.h"
 #import <AVFoundation/AVFoundation.h>
-
+#import "TDDemoViewController.h"
 @interface PKImagePickerViewController ()
 
 @property(nonatomic,strong) AVCaptureSession *captureSession;
@@ -188,8 +188,12 @@
             //------test
  
             UIImageWriteToSavedPhotosAlbum(capturedImage, self, nil, nil);
-
-            
+            TDDemoViewController * getMaxColor = [[TDDemoViewController alloc]init];
+            UIColor* color = [getMaxColor getImageColors:capturedImage];
+            CGFloat h;
+            [color getHue:&h saturation:nil brightness:nil alpha:nil];
+            [self presentViewController:getMaxColor animated:YES completion:nil];
+            NSLog(@"------COLOR %f",h);
             //--
             imageData = nil;
         }
