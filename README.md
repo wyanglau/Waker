@@ -1,8 +1,9 @@
 # Waker
 
-Below is the preview of the app.
+Below are the previews of this app.
+
 ![Alt Text](https://c4.staticflickr.com/8/7726/17753999140_bdb864c42a_z.jpg)![Alt Text](https://c1.staticflickr.com/9/8890/17753755238_09a7ffc96a.jpg)
 
-You may also find the demo at https://youtu.be/HU3ZauWu00E
+You may also find the demo at  https://youtu.be/HU3ZauWu00E
 
 Thanks.
