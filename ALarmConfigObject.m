@@ -8,7 +8,7 @@
 
 #import "ALarmConfigObject.h"
 
-NSString* const OPTION_GAME=@"Game Options";
+NSString* const OPTION_GAME=@"Pick a Color";
 NSString* const OPTION_REPEAT=@"Repeat";
 NSString* const OPTION_LABEL=@"Label";
 @implementation ALarmConfigObject
