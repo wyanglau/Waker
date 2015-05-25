@@ -38,8 +38,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "14"
             endingLineNumber = "14"
-            landmarkName = "@interface AlarmConfigViewController"
-            landmarkType = "2">
+            landmarkName = "timePicker"
+            landmarkType = "19">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -47,6 +47,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "-[AlarmConfigViewController timePicker]"
                   moduleName = "Waker"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liuwyang/Dropbox/Waker/Waker/AlarmConfigViewController.h"
                   timestampString = "436005742.838218"
                   startingColumnNumber = "9223372036854775807"
@@ -61,6 +62,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "-[AlarmConfigViewController setTimePicker:]"
                   moduleName = "Waker"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liuwyang/Dropbox/Waker/Waker/AlarmConfigViewController.h"
                   timestampString = "436005742.838451"
                   startingColumnNumber = "9223372036854775807"
@@ -84,8 +86,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
             endingLineNumber = "21"
-            landmarkName = "showTime"
-            landmarkType = "19">
+            landmarkName = "@implementation WakerMainViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
